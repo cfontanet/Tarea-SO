@@ -1,0 +1,4 @@
+de;0123456;Hola como estay
+para;53432342;Q onda
+para;09876543;asdffgdfg
+de;1234;chao
