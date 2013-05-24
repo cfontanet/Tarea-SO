@@ -52,13 +52,3 @@ class Historial:
         archivo.write( a + ';' + numero + '\n')
         archivo.close()
 
-# h = historial()
-# # h.mostrar_mensajes()
-# # h.agregar_mensaje( 'de', '1234', 'chao' )
-# # h.mostrar_mensajes()
-# h.mostrar_llamadas()
-# h.agregar_llamada( 'para', '123456')
-# h.mostrar_llamadas()
-
-
-

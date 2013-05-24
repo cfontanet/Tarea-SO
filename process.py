@@ -18,7 +18,9 @@ class Proceso:
         # self.date = datetime.today()
         self.length = duracion
         self.time_left = duracion
-        self.mostrar=""
+        self.mostrar = ""
+
+        self.perifericos = []
 
     def getType(self):
         return self.type
@@ -41,6 +43,9 @@ class Proceso:
     def getId(self):
         return self.id
 
+    def getPerifericos():
+        return self.perifericos
+
     def correr(self):
         time.sleep(1)
         self.time_left -= 1
@@ -51,6 +56,7 @@ class Proceso:
             return True
         else:
             return False
+
     def imprimirMensaje(self):
         print self.mostrar
 
@@ -67,6 +73,9 @@ class Llamada(Proceso):
         self.time = int(duracion)
         self.time_left = int(duracion)
         self.number = numero
+
+        self.perifericos = [ 'U', 'B', 'B', '', 'U', 'U' ]
+
         self.mostrar=""
         if tipo=='1':
             self.mostrar="LLamando a: ", self.number
@@ -114,6 +123,8 @@ class Mensaje(Proceso):
         self.number = numero
         self.text = texto
 
+        self.perifericos = [ '', 'U', '', '', 'U', 'U' ]
+
         self.mostrar=""
         if tipo=='3':
             self.mostrar="Enviando Mensaje a: ", self.number
@@ -160,6 +171,9 @@ class Contacto(Proceso):
         self.time_left = self.time
         self.number = numero
         self.contact = nombre_contacto
+
+        self.perifericos = [ 'U', '', '', '', '', '' ]
+
         self.mostrar="Creando contacto"
 
     def getNumber(self):
@@ -189,6 +203,9 @@ class Cualquier(Proceso):
         self.priority = prioridad
         self.time = duracion
         self.time_left = self.time
+
+        self.perifericos = [ 'N', 'U', 'U', 'U', 'U', 'U' ]
+
         self.mostrar="Haciendo cualquier proceso"
         
     def correr(self):
@@ -211,12 +228,18 @@ class Ubicacion(Proceso):
         self.priority = prioridad
         self.time = duracion
         self.time_left = self.time
-        self.mostrar=""
+
+        self.mostrar = ""
+        self.perifericos = []
+
         if tipo=='7':
             self.mostrar="Enviando Ubicacion"
+            self.perifericos = [ '', '', '', 'U', 'U', '' ]
+
         if tipo=='8':
             self.mostrar="Recibiendo Ubicacion"
-        
+            self.perifericos = [ 'U', '', '', 'U', '', '' ]
+
     def correr(self):
         time.sleep(1)
         self.time_left -= 1
@@ -247,6 +270,8 @@ class Jugar(Proceso):
         self.time_left = self.time
         self.mostrar="Jugando"
 
+        self.perifericos = [ 'N', 'U', '', 'U', 'U', 'U' ]
+
         
         
     def correr(self):
@@ -270,6 +295,8 @@ class Musica(Proceso):
         self.time = duracion
         self.time_left = self.time
         self.mostrar= "Escuchando musica"
+
+        self.perifericos = [ 'U', 'U', '', '', '', '' ]
         
         
     def correr(self):

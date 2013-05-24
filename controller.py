@@ -3,8 +3,6 @@ import process as pr
 from multiprocessing import *
 
 
-
-
 class Controller:
     def __init__(self):
         self.h = []
@@ -103,14 +101,12 @@ class Controller:
                 if( self.pactual.correr() ):
                     self.pactual = heappop(self.h)[1]
                     self.pactual.imprimirMensaje()
+
             #Si es el ultimo proceso
             elif( ( not self.h ) and self.pactual ):
                 if( self.pactual.correr() ):
                     self.pactual = None
 
             tiempo_actual += 1
-
-
-
 
 
