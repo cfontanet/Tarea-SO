@@ -8,10 +8,10 @@ from multiprocessing import *
 class Controller:
     def __init__(self):
         self.h = []
-        self.pactual=None
+        self.pactual = None
 
     def top(self):
-        heap_aux=self.h
+        heap_aux = self.h
         print "\nNombre proceso \t \tPrioridad \t \tTiempo restante"
         
         if self.pactual:
@@ -21,24 +21,13 @@ class Controller:
                 print self.pactual.getName(), "\t \t", self.pactual.getPriority(), "\t \t \t", self.pactual.getTime_left()
         
         if heap_aux:
-            i=0
-            arr = []
-            
-            while heap_aux:
-                p_aux=heappop(heap_aux)[1]
+            for p in heap_aux:
+                p_aux = p[1]
                 if len(p_aux.getName()) >= 15:
                     print p_aux.getName(), "\t", p_aux.getPriority(), "\t \t \t", p_aux.getTime_left()
                 else:
                     print p_aux.getName(), "\t \t", p_aux.getPriority(), "\t \t \t", p_aux.getTime_left()
-                arr.append(p_aux)
-                i+=1
-                
-            j=0
-            while j< len(arr) :
-                heappush( self.h, ( arr[j].getPriority(), arr[j] ) )
-                j+=1
 
-    
 
     def simular(self, value, nombre):
         tiempo_actual = 0

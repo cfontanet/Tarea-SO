@@ -33,13 +33,3 @@ class Agenda:
         archivo = open( "agenda.txt", 'a', 0 )
         archivo.write( nombre + ';' + numero + '\n')
         archivo.close()
-
-
-# a = agenda()
-
-# a.mostrar()
-
-# a.agregarContacto( 'Nicolas Mora' , '91234567')
-
-# a.mostrar()
-
